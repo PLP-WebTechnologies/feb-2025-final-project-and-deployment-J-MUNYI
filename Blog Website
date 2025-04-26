@@ -1,0 +1,235 @@
+index.html
+html
+Copy
+Edit
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>My Blog</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <header>
+    <nav id="navbar">
+      <div class="logo">MyBlog</div>
+      <ul id="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+      </ul>
+      <button id="menu-toggle">☰</button>
+      <button id="theme-toggle">🌓</button>
+    </nav>
+  </header>
+
+  <main>
+    <section class="posts">
+      <article class="post">
+        <h2><a href="post.html">First Blog Post</a></h2>
+        <p>Published on April 26, 2025</p>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit...</p>
+      </article>
+
+      <article class="post">
+        <h2><a href="post.html">Another Post</a></h2>
+        <p>Published on April 20, 2025</p>
+        <p>Curabitur non nulla sit amet nisl tempus convallis quis ac lectus...</p>
+      </article>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 MyBlog. All rights reserved.</p>
+  </footer>
+
+  <script src="js/script.js"></script>
+</body>
+</html>
+post.html
+html
+Copy
+Edit
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>First Blog Post</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <header>
+    <nav id="navbar">
+      <div class="logo">MyBlog</div>
+      <ul id="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+      </ul>
+      <button id="menu-toggle">☰</button>
+      <button id="theme-toggle">🌓</button>
+    </nav>
+  </header>
+
+  <main>
+    <article class="single-post">
+      <h1>First Blog Post</h1>
+      <p class="date">Published on April 26, 2025</p>
+      <p>This is a detailed post about something interesting...</p>
+    </article>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 MyBlog. All rights reserved.</p>
+  </footer>
+
+  <script src="js/script.js"></script>
+</body>
+</html>
+about.html
+html
+Copy
+Edit
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>About Me</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <header>
+    <nav id="navbar">
+      <div class="logo">MyBlog</div>
+      <ul id="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+      </ul>
+      <button id="menu-toggle">☰</button>
+      <button id="theme-toggle">🌓</button>
+    </nav>
+  </header>
+
+  <main>
+    <section class="about">
+      <h1>About Me</h1>
+      <p>Hello! I'm the author of this blog. I love writing about tech and life.</p>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 MyBlog. All rights reserved.</p>
+  </footer>
+
+  <script src="js/script.js"></script>
+</body>
+</html>
+css/style.css
+css
+Copy
+Edit
+/* Reset some default styling */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Arial', sans-serif;
+  line-height: 1.6;
+  background-color: var(--bg-color, #ffffff);
+  color: var(--text-color, #000000);
+}
+
+header {
+  background: #333;
+  color: #fff;
+  padding: 1rem;
+}
+
+#navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+#nav-links {
+  list-style: none;
+  display: flex;
+  gap: 1rem;
+}
+
+#nav-links li a {
+  color: white;
+  text-decoration: none;
+}
+
+#menu-toggle, #theme-toggle {
+  background: none;
+  border: none;
+  color: white;
+  font-size: 1.5rem;
+  cursor: pointer;
+  display: none;
+}
+
+.posts, .about {
+  padding: 2rem;
+}
+
+.post {
+  margin-bottom: 2rem;
+}
+
+.single-post {
+  padding: 2rem;
+}
+
+footer {
+  text-align: center;
+  padding: 1rem;
+  background: #333;
+  color: white;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  #nav-links {
+    flex-direction: column;
+    display: none;
+    background: #333;
+    padding: 1rem;
+  }
+  #nav-links.active {
+    display: flex;
+  }
+  #menu-toggle {
+    display: block;
+  }
+}
+js/script.js
+javascript
+Copy
+Edit
+// Mobile Menu Toggle
+const menuToggle = document.getElementById('menu-toggle');
+const navLinks = document.getElementById('nav-links');
+
+menuToggle.addEventListener('click', () => {
+  navLinks.classList.toggle('active');
+});
+
+// Dark/Light Mode Toggle
+const themeToggle = document.getElementById('theme-toggle');
+
+themeToggle.addEventListener('click', () => {
+  if (document.body.style.getPropertyValue('--bg-color') === '#ffffff') {
+    document.body.style.setProperty('--bg-color', '#121212');
+    document.body.style.setProperty('--text-color', '#ffffff');
+  } else {
+    document.body.style.setProperty('--bg-color', '#ffffff');
+    document.body.style.setProperty('--text-color', '#000000');
+  }
+});
